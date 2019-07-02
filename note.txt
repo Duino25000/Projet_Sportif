@@ -1,0 +1,5 @@
+**********************************
+ le fichier composer.json permet d' ajouter une section "autoload" avec 
+ une sous-section "psr-4" contenant la liste des namespaces et 
+ dossiers correspondant à charger.
+ ***********************************************
