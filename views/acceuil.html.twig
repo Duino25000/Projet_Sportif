@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	
+<h1>Bonjour et bienvenu sur le site de l'équipe de **********</h1>
+<p>************Description du site**********</p>
+
+	 <form method="post" id="formLogin">
+
+	 	<div id="boxNomLogin" class="boxInput">
+	 		<label for="nomLogin" id="label_nomLogin"><i class="fas fa-user"></i></label>
+            <input type="text" name="nomLogin" id="nomLogin" class="vide" placeholder="Nom" />
+        </div>
+        <p id="label_p_nomLogin"></p>
+             
+        <div id="boxPswdLogin" class="boxInput">
+        	<label for="pswdLogin" id="label_pswdLogin"><i class="fas fa-unlock"></i></label>
+            <input type="password" name="pswdLogin" id="pswdLogin" class="vide" placeholder="Mot de passe" />
+        </div>
+        <p id="label_p_pswdLogin"></p>
+
+	<div id="boutonVerif" onclick="login()"><i class="fas fa-check"></i></div>
+	</form>
+
+{% endblock %}

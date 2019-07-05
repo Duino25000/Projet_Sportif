@@ -1,0 +1,74 @@
+body {
+  background-color: grey;
+  border: 2px solid #b0e0e6; }
+
+#formAjoutUtilsateur {
+  display: flex;
+  width: 100%; }
+  #formAjoutUtilsateur #blocForm {
+    display: flex;
+    width: 100%; }
+    #formAjoutUtilsateur #blocForm label {
+      font-size: 160%;
+      margin-right: 4%;
+      margin-top: 2%; }
+    #formAjoutUtilsateur #blocForm p {
+      font-size: 70%;
+      margin-bottom: 3%;
+      height: 15px; }
+    #formAjoutUtilsateur #blocForm input {
+      width: 400px;
+      /*500*/
+      height: 55px;
+      border: none;
+      border-left: 2px solid grey; }
+  #formAjoutUtilsateur .boxInput {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    height: 60px;
+    width: 400px;
+    /*500*/
+    padding-left: 2%;
+    padding-top: 1%; }
+  #formAjoutUtilsateur #blockGaucheForm {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  #formAjoutUtilsateur #blockDroitForm {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+
+#basForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  #basForm #boutonVerif {
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 90px;
+    padding-top: 1%; }
+    #basForm #boutonVerif i {
+      color: green;
+      font-size: 180%; }
+  #basForm #boutonVerif:hover {
+    border: 2px solid green;
+    cursor: pointer; }
+  #basForm i {
+    font-size: 250%; }
+
+#hautForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  #hautForm h2 {
+    font-size: 240%;
+    margin: 2%;
+    margin-bottom: 0px; }
+
+/*# sourceMappingURL=style.css.map */

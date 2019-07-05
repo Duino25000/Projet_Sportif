@@ -1,0 +1,113 @@
+// *{
+// 	margin: 0px;
+// 	padding: 0px;
+// }
+
+body{
+	background-color: grey;
+	border: 2px solid #b0e0e6;
+}
+#formAjoutUtilsateur{//form
+	display: flex;
+	width: 100%;
+
+	#blocForm{
+	  display: flex;
+	 
+	  width: 100%;
+	
+	label{
+    	font-size: 160%;
+    	margin-right: 4%;
+    	margin-top: 2%; 
+    }
+
+  	p{
+    	font-size: 70%;
+    	margin-bottom: 3%; 
+    	height: 15px;
+    }
+
+  	input{
+    	width: 400px;/*500*/
+    	height: 55px;
+    	border: none;
+    	border-left: 2px solid grey; 
+    }
+
+}//#blocForm
+
+    .boxInput {
+  		display: flex;
+  		flex-direction: row;
+  		background-color: white;
+  		height: 60px;
+  		width: 400px;/*500*/
+  		padding-left: 2%;
+  		padding-top: 1%;
+  	} 
+
+// ::placeholder{
+// font-size: 200%;}
+
+	#blockGaucheForm{
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#blockDroitForm{
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}//form
+
+#basForm{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	#boutonVerif{
+		border: 2px solid black;
+		display: flex;
+		justify-content: center;
+		height: 40px;
+		width: 90px;
+		padding-top: 1%;
+		
+		i{
+			color: green;
+			font-size: 180%;
+		}
+	}
+
+	#boutonVerif:hover{
+		border: 2px solid green;
+		cursor: pointer;
+	}
+
+	i{
+		font-size: 250%;
+	}
+
+}
+
+#hautForm{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	h2{
+		font-size: 240%;
+		margin: 2%;
+		margin-bottom: 0px;
+	}
+}
+
+#formLogin{
+
+	
+}

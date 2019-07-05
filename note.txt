@@ -1,5 +1,20 @@
-**********************************
- le fichier composer.json permet d' ajouter une section "autoload" avec 
- une sous-section "psr-4" contenant la liste des namespaces et 
- dossiers correspondant à charger.
+****************** COMPOSER.JSON ****************
+Le fichier composer.json permet d' ajouter une section "autoload" avec 
+une sous-section "psr-4" contenant la liste des namespaces et 
+dossiers correspondant à charger.
+ 
+composer update
+pour recharger après modification.
+ 
+Ce fichier composer.json fonctionne ainsi :
+	On permet le chargement de fichiers par leur namespace, en définissant 
+	que le namespace "Components\" appelera un fichier dans "components/".
+
+Ainsi si vous voulez appeler un modèle "Users" qui sera la classe d'un fichier 
+"models/User.php", il suffira d'écrire dans le fichier exploitant ce modèle :
+	use Models\Users;
  ***********************************************
+ 	
+composer require "twig/twig:^2.0"
+
+********************
