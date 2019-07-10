@@ -1,0 +1,60 @@
+
+//************************************ JS ********************************
+
+	//var placeLibreSaisie = document.querySelector("#placeLibre").value;
+	//var placeOccupeeSaisie = document.querySelector("#placeOccupee").value;
+
+
+	if (placeLibreSaisie!=""){	
+	    	var libreOK=false;
+	    		var sVar10 = encodeURIComponent(placeLibreSaisie);
+	    		libreOK = true;		
+	 }
+
+
+
+
+	if (placeOccupeeSaisie!=""){	
+	    	var occupeOK=false;
+	    		var sVar11 = encodeURIComponent(placeOccupeeSaisie);
+	    		occupeOK = true;		
+	 }
+
+//******************************** PHP *********************************************
+
+//$libre = (isset($_GET["variable9"])) ? $_GET["variable9"] : NULL;
+//$occuper = (isset($_GET["variable10"])) ? $_GET["variable10"] : NULL;
+
+//echo "INSERT INTO admin2(Nom, Mdp, Mail, Telephone, Ville) VALUES('".$nom."', '".$mdp."', '".$mail."', '".$tel."','".$ville."')";
+//$data = $req->fetchAll();
+
+//******************************* HTML *************************************************
+
+
+<!--               <div id="choixPlace">
+                    <h3>Place(s) libre(s)</h3>
+                    <select name="placeLibre" id="placeLibre">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                    <h3>Place(s) ocuppée(s)</h3>
+                    <select name="placeOccupee" id="placeOccupee">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </div> -->

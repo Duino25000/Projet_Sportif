@@ -1,14 +1,16 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	
-<h1>Bonjour et bienvenu sur le site de l'équipe de **********</h1>
-<p>************Description du site**********</p>
 
-	 <form method="post" id="formLogin">
 
-	 	<div id="boxNomLogin" class="boxInput">
-	 		<label for="nomLogin" id="label_nomLogin"><i class="fas fa-user"></i></label>
+<div id="mainBlockAcceuil">
+    <h1>Bonjour et bienvenue sur le site de l'équipe de **********</h1>
+    <p>************Description du site**********</p>
+
+     <form method="post" id="formLogin">
+
+     	<div id="boxNomLogin" class="boxInput">
+     		<label for="nomLogin" id="label_nomLogin"><i class="fas fa-user"></i></label>
             <input type="text" name="nomLogin" id="nomLogin" class="vide" placeholder="Nom" />
         </div>
         <p id="label_p_nomLogin"></p>
@@ -19,7 +21,7 @@
         </div>
         <p id="label_p_pswdLogin"></p>
 
-	<div id="boutonVerif" onclick="login()"><i class="fas fa-check"></i></div>
-	</form>
-
+       <div id="btnAcceuil" onclick="login()"><i class="fas fa-check"></i></div><!--boutonVerif -->
+    </form>
+</div>
 {% endblock %}

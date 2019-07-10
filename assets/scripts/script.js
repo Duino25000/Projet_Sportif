@@ -21,6 +21,7 @@ function getXMLHttpRequest() {
 //***************************************************************************************
 
 function traitement() {
+	//console.log(valeur);
 	var nomSaisie = document.querySelector("#nom").value;	
 	var chgtNom = document.querySelector("#label_nom");
 	var chgt_p_nom = document.querySelector("#label_p_nom");
@@ -45,6 +46,9 @@ function traitement() {
 	var chgtVille = document.querySelector("#label_ville");
 	var chgt_p_ville = document.querySelector("#label_p_ville");
 
+	var typeChoisie = document.querySelector('input[name="typeCompte"]:checked').value;
+
+	var saisonChoisie = document.querySelector('input[name="date"]:checked').value;
 
 //*************************** NOM ***************************
     if (nomSaisie!=""){	
@@ -65,7 +69,6 @@ function traitement() {
     if (pswdSaisie!=""){	
     	var pswdOK=false;
     	if(/^[0-9]+$/.test(pswdSaisie)){
-    		//chgtNom.innerHTML = "Nom";
     		chgt_p_pswd.innerHTML = "Format correct";
     		document.querySelector("#pswd").style.borderColor = 'green';
     		var sVar2 = encodeURIComponent(pswdSaisie);
@@ -80,7 +83,6 @@ function traitement() {
     if (pswd2Saisie!=""){	
     	var pswd2OK=false;
     	if(/^[0-9]+$/.test(pswd2Saisie)){
-    		//chgtNom.innerHTML = "Nom";
     		chgt_p_pswd.innerHTML = "Format correct";
     		document.querySelector("#pswd2").style.borderColor = 'green';
     		var sVar3 = encodeURIComponent(pswd2Saisie);
@@ -93,7 +95,6 @@ function traitement() {
     }
 //************ COMPARAISON MOT DE PASSE **************************
 	if (pswd2Saisie!=pswdSaisie){
-		
 		var comparaisonOK=false;
 		chgt_p_pswd2.innerHTML = "Les mots de passe ne coresspondent pas";
 		document.querySelector("#pswd2").style.borderColor = 'red';
@@ -106,7 +107,6 @@ function traitement() {
 	if (mailSaisie!=""){
 			var mailOK=false;
 	    	 if(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mailSaisie)){
-	    	 	//chgtMail.innerHTML = "Mail";
 	    		document.querySelector("#mail").style.borderColor = 'green';
 	    		chgt_p_mail.innerHTML = "Format correct";
 	    		var sVar4 = encodeURIComponent(mailSaisie);	
@@ -121,7 +121,6 @@ function traitement() {
 	if (telSaisie!=""){	
 	    	var telOK=false;
 	    	if(/^[0-9]+$/.test(telSaisie)){
-	    		//chgtNom.innerHTML = "Nom";
 	    		chgt_p_tel.innerHTML = "Format correct";
 	    		document.querySelector("#tel").style.borderColor = 'green';
 	    		var sVar5 = encodeURIComponent(telSaisie);
@@ -134,9 +133,8 @@ function traitement() {
 	    }
 //**************************** VILLE ***********************************
 	if (villeSaisie!=""){	
-	    	var villeOK=false;//Même méthode pour les autres. Doivent passer true pour envoi.
-	    	if(/^[a-zA-Z- ]+$/.test(villeSaisie)){
-	    		//chgtNom.innerHTML = "Nom";
+	    	var villeOK=false;
+	    	if(/^[a-zA-Z-ç ]+$/.test(villeSaisie)){
 	    		chgt_p_ville.innerHTML = "Format correct";
 	    		document.querySelector("#ville").style.borderColor = 'green';
 	    		var sVar6 = encodeURIComponent(villeSaisie);
@@ -147,25 +145,32 @@ function traitement() {
 	    		document.querySelector("#ville").style.borderColor = 'red';	
 	    	}
 	    }
+//******************************************************************************
+	if (typeChoisie!=""){	
+	    	var typeOK=false;
+	    		var sVar9 = encodeURIComponent(typeChoisie);
+	    		typeOK = true;		
+	 }
+//******************************************************************************
+	if (saisonChoisie!=""){	
+	    	var saisonOK=false;
+	    		var sVar10 = encodeURIComponent(saisonChoisie);
+	    		saisonOK = true;		
+	 }
 //*********************	ENVOI REQUETE XHR SI OK *******************************
 
-
-	if(nomOK && pswdOK && mailOK && telOK && villeOK){//Sous entend true, envoi du formulaire.
+	if(nomOK && pswdOK && mailOK && telOK && villeOK && typeOK && saisonOK){//Sous entend true, envoi du formulaire.
 		var xhr = getXMLHttpRequest(); 
 		xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
 			alert(xhr.responseText);
 			}
 		};
-
-		xhr.open("GET", "assets/php/traitement.php?variable1=" + sVar1 + "&variable2= " + sVar2 + "&variable3= " + sVar4 + "&variable4= " + sVar5 + "&variable5= " + sVar6, true);
+		xhr.open("GET", "models/AjoutUtilisateurModel.php?variable1=" + sVar1 + "&variable2= " + sVar2 + "&variable3= " + sVar4 + "&variable4= " + sVar5 + "&variable5= " + sVar6 + "&variable8= " + sVar9 + "&variable9= " + sVar10, true);
 		xhr.send(null);
-		
 	}
-
+	
 }//fonction traitement
-
-
 //**************************************************
 function check(){
 	var inputs = document.querySelectorAll(".vide");
@@ -178,10 +183,8 @@ function check(){
 			var label_id = "#label_" + champs.id;
 			var monLabel=document.querySelector(label_id);
 			var texteDeMonLabel = monLabel.innerHTML;
-			//monLabel.innerHTML= texteDeMonLabel + "*";
 			error = true;	
   		}
-
 	}//for
 	if (error === false){
 		traitement();
@@ -193,8 +196,6 @@ function check(){
 //************************************************
 function login(){
 
-	//check();
-
 	var nomLoginSaisie = document.querySelector("#nomLogin").value;	
 	var chgtNomLogin = document.querySelector("#label_nomLogin");
 	var chgt_p_nomLogin = document.querySelector("#label_p_nomLogin");
@@ -205,7 +206,7 @@ function login(){
 
 	//*************************** NOM ***************************
     if (nomLoginSaisie!=""){	
-    	var nomLoginOK=false;//Même méthode pour les autres. Doivent passer true pour envoi.
+    	var nomLoginOK=false;
     	if(/^[a-zA-Z- ]+$/.test(nomLoginSaisie)){
     		chgt_p_nomLogin.innerHTML = "Format correct";
     		document.querySelector("#nomLogin").style.borderColor = 'green';
@@ -232,20 +233,32 @@ function login(){
     	}
     }
 
-
-
     if(nomLoginOK && pswdLoginOK){//Sous entend true, envoi du formulaire.
 		var xhr = getXMLHttpRequest(); 
 		xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-			alert(xhr.responseText);
+			document.body.innerHTML=xhr.responseText;
 			}
 		};
-
-		xhr.open("GET", "assets/php/traitement.php?variable6=" + sVar7 + "&variable7= " + sVar8, true);
+		xhr.open("GET", "controllers/MonController.php?variable6=" + sVar7 + "&variable7=" + sVar8, true);
 		xhr.send(null);
-		
 	}
-
 }//login
+/**************************************************************/
+
+function addUser(){
+
+	var xhr = getXMLHttpRequest(); 
+	xhr.open("GET", "views/ajoutUtilisateur.html.twig", true);
+	$('#data').load('views/ajoutUtilisateur.html.twig');
+	//xhr.send(null);
+}
+/**************************************************************/
+function diagramme1(){
+
+	var xhr = getXMLHttpRequest(); 
+	xhr.open("GET", "views/diagramme1.html.twig", true);
+	$('#data').load('views/diagramme1.html.twig');
+}
+/****************************************************************/
 
