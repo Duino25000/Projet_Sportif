@@ -1,4 +1,0 @@
-**************************************
-dossier "includes" pour les classes appelées par différents contrôleurs et n'intéragissant pas 
-directement avec l'utilisateur.
-*************************************

@@ -1,35 +1,5 @@
 
       
-
-<!-- <div>
-  <canvas id="myChart"></canvas>
-</div>
-
-<script src="test.js"></script>
-
-<script>
-    var myContext = document.getElementById("myChart");
-    var myChartConfig = {
-      type: 'bar',
-      data: {
-        labels: ["Féminin", "Masculin", "Animaux"],
-        datasets: [
-           {
-           label: "Tous les voyageurs",
-           data: [227, 331, 11]
-           },{
-           label: "1ère Classe",
-           data: [107, 115, 2]
-           },{
-           label: "2ème Classe",
-           data: [120, 116, 9]
-           }
-        ]
-      }
-    }
-  var myChart = new Chart(myContext, myChartConfig);
-</script> -->
-
 <canvas id="myChart" width="400" height="200"></canvas>
 <script>
 var ctx = document.getElementById('myChart').getContext('2d');
@@ -70,3 +40,4 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>
+<div id="btnTest" onclick="testJson()">TEST</div>

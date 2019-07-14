@@ -1,0 +1,45 @@
+
+<div class="hautForm">
+	<h2>Créer un événement</h2>
+    <h4>Tout les champs sont obligatoires</h4>
+</div>
+
+
+<div id="mainBlockEvent">
+    <form method="post" id="formAjoutEvent">
+
+    	<h3>Date de l'événement</h3>
+    	<div class="boxInput">
+    		<label for="dateEvent" id="label_date"><i class="far fa-calendar-alt"></i></label>
+        	<input type="date" id="dateEvent" name="dateEvent">
+      	</div>
+
+      	<h3>Lieu</h3>
+        <div id="boxLieu" class="boxInput">
+        	<label for="lieu" id="label_lieu"><i class="fas fa-city"></i></label>
+            <input type="text" name="lieu" id="lieu" placeholder="Adresse" />
+        </div>
+        <p id="label_p_lieu"></p>
+
+
+<h3>Quelle saison</h3>
+        <div id="saison_event" class="boxInput">
+            
+            <select name="saisonEvent" id="saisonEvent">
+        	   <option value="2019">2018/2019</option>
+                <option value="2020">2019/2020</option>
+            </select>
+
+        </div>
+
+
+        
+        <p><i class="fas fa-exclamation-circle"></i><br />Attention. Lorsque vous cliquer sur le bouton "valider",<br />un mail sera envoyé à toutes les personnes concernées.</p>
+        <div class="boutonPrincipal" onclick="addEvent()"><i class="fas fa-futbol"></i></div>
+
+
+
+    </form>
+
+        
+</div>

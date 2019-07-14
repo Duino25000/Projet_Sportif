@@ -1,6 +1,8 @@
+
+var xhr = null;
 //*************************************************************************************
 function getXMLHttpRequest() {
-	var xhr = null;
+	//var xhr = null;
 	
 	if (window.XMLHttpRequest || window.ActiveXObject) {
 		if (window.ActiveXObject) {
@@ -159,16 +161,26 @@ function traitement() {
 	 }
 //*********************	ENVOI REQUETE XHR SI OK *******************************
 
-	if(nomOK && pswdOK && mailOK && telOK && villeOK && typeOK && saisonOK){//Sous entend true, envoi du formulaire.
+if(nomOK && pswdOK && mailOK && telOK && villeOK && typeOK && saisonOK){//Sous entend true, envoi du formulaire.
 		var xhr = getXMLHttpRequest(); 
+
+
 		xhr.onreadystatechange = function() {
-		if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-			alert(xhr.responseText);
-			}
+			if (xhr.readyState === XMLHttpRequest.DONE) {
+				if (xhr.status === 200) {
+					alert(xhr.responseText);
+      			} else {
+        			alert('Il y a eu un problème avec la requête.');
+      			}
+    		}
 		};
-		xhr.open("GET", "models/AjoutUtilisateurModel.php?variable1=" + sVar1 + "&variable2= " + sVar2 + "&variable3= " + sVar4 + "&variable4= " + sVar5 + "&variable5= " + sVar6 + "&variable8= " + sVar9 + "&variable9= " + sVar10, true);
+
+
+		xhr.open("GET", "controllers/AjoutUtilisateurController.php?variable1=" + sVar1 + "&variable2= " + sVar2 + "&variable3= " + sVar4 + "&variable4= " + sVar5 + "&variable5= " + sVar6 + "&variable8= " + sVar9 + "&variable9= " + sVar10, true);
 		xhr.send(null);
 	}
+	
+
 	
 }//fonction traitement
 //**************************************************
@@ -237,17 +249,15 @@ function login(){
 		var xhr = getXMLHttpRequest(); 
 		xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-			document.body.innerHTML=xhr.responseText;
+			document.body.innerHTML=xhr.responseText;//xhr.responseJson(quand meme l'encoder côté php)
 			}
 		};
-		xhr.open("GET", "controllers/MonController.php?variable6=" + sVar7 + "&variable7=" + sVar8, true);
+		xhr.open("GET", "controllers/LoginController.php?variable6=" + sVar7 + "&variable7=" + sVar8, true);
 		xhr.send(null);
 	}
 }//login
 /**************************************************************/
-
 function addUser(){
-
 	var xhr = getXMLHttpRequest(); 
 	xhr.open("GET", "views/ajoutUtilisateur.html.twig", true);
 	$('#data').load('views/ajoutUtilisateur.html.twig');
@@ -255,10 +265,68 @@ function addUser(){
 }
 /**************************************************************/
 function diagramme1(){
-
 	var xhr = getXMLHttpRequest(); 
+		
 	xhr.open("GET", "views/diagramme1.html.twig", true);
 	$('#data').load('views/diagramme1.html.twig');
+
+
+
+
+
+
+
+}
+/****************************************************************/
+function evenement(){
+	var xhr = getXMLHttpRequest(); 
+	xhr.open("GET", "views/ajoutEvenement.html.twig", true);
+	$('#data').load('views/ajoutEvenement.html.twig');
+}
+/**************************************************************/
+function addEvent(){
+	var dateSaisie = document.querySelector("#dateEvent").value;
+	var lieuSaisie = document.querySelector("#lieu").value;
+	var saisonSaisie = document.querySelector("#saisonEvent").value;
+
+	if (dateSaisie!=""){	
+    	var dateOK=false;
+    	var sVar11 = encodeURIComponent(dateSaisie);
+    	var	dateOK = true;
+    	}
+
+    if (lieuSaisie!=""){	
+    	var lieuOK=false;
+    	var sVar12 = encodeURIComponent(lieuSaisie);
+    	var	lieuOK = true;
+    	}
+
+     if (saisonSaisie!=""){	
+    	var saisonEventOK=false;
+    	var sVar13 = encodeURIComponent(saisonSaisie);
+    	var	saisonEventOK = true;
+    	}
+
+	if(dateOK && lieuOK && saisonEventOK){//Sous entend true, envoi du formulaire.
+		var xhr = getXMLHttpRequest(); 
+		xhr.onreadystatechange = function() {
+	if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+		document.body.innerHTML=xhr.responseText;
+		}
+	};
+	xhr.open("GET", "controllers/EventController.php?variable11=" + sVar11 + "&variable12=" + sVar12+ "&variable13=" + sVar13, true);
+	xhr.send(null);
+}
+}/***************************************************/
+function acceuil(){
+	var xhr = getXMLHttpRequest(); 
+	xhr.open("GET", "index.php", true);
+	$('#data').load('index.php');
 }
 /****************************************************************/
 
+function testJson(){
+	console.log("salut");
+	var xhr = getXMLHttpRequest(); 
+	//xhr.open("GET", "controllers/DiagrammeController.php", true);
+}
